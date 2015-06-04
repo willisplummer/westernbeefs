@@ -1,0 +1,14 @@
+<p>
+	<strong>Page Number:</strong>
+	<%= page.page_number %>
+</p>
+
+<p>
+	<strong>Body:</strong>
+	<%= page.body %>
+</p>
+<p>
+  <%= link_to 'Destroy Page', [page.article, page],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
