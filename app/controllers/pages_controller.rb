@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
 
 	def show
-		@article = Article.find(params[:author])
-  		@page = Page.find(params[:page_number])
+		@article = Article.find_by(author_slug: params[:author_slug])
+  		@page = @article.pages.find_by(page_number: params[:page_number])
  	end
 
 	def create

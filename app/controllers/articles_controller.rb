@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret",
+  http_basic_authenticate_with name: "willis", password: "password",
 except: [:index, :show]
 
   def index
@@ -8,7 +8,7 @@ except: [:index, :show]
   end
 
   def show
-  	@article = Article.find(params[:id])
+    @article = Article.find_by(author_slug: params[:author_slug])
   end
 
   def new
@@ -48,6 +48,6 @@ except: [:index, :show]
 
   private
   	def article_params
-  		params.require(:article) .permit(:title, :text, :page_count, :author)
+  		params.require(:article) .permit(:title, :text, :page_count, :author, :author_slug)
   	end
 end

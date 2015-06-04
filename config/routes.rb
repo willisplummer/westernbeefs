@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    resources :articles do
+    resources :articles  do
       resources :pages
     end
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   # Example of regular route:
+  get '/:author_slug/' => 'articles#show', as: :custom_article
+
+  get '/:author_slug/:page_number/' => 'pages#show', as: :custom_page
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
