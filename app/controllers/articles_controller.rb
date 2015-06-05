@@ -8,7 +8,7 @@ except: [:index, :show]
   end
 
   def show
-    @article = Article.friendly.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def new
