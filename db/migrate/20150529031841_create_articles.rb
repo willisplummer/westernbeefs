@@ -3,8 +3,8 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :title
       t.string :author
-      t.string :author_slug
-      t.text :text
+      t.string :slug
+      t.text :bio
       t.integer :page_count
 
 

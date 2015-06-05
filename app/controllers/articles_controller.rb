@@ -8,7 +8,7 @@ except: [:index, :show]
   end
 
   def show
-    @article = Article.find_by(author_slug: params[:author_slug])
+    @article = Article.friendly.find(params[:id])
   end
 
   def new
@@ -23,7 +23,7 @@ except: [:index, :show]
   	@article = Article.new(article_params)
 
   	if @article.save
-  		redirect_to @article
+  		redirect_to articles_path
   	else
   		render 'new'
   	end

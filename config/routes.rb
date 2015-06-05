@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   # Example of regular route:
-  get '/:author_slug/' => 'articles#show', as: :custom_article
+#  get '/:author_slug/' => 'articles#show', as: :custom_article
 
-  get '/:author_slug/:page_number/' => 'pages#show', as: :custom_page
+#  get '/:author_slug/:page_number/' => 'pages#show', as: :custom_page
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
 
