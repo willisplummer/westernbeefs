@@ -48,6 +48,6 @@ except: [:index, :show]
 
   private
   	def article_params
-  		params.require(:article) .permit(:title, :text, :page_count, :author, :author_slug)
+  		params.require(:article) .permit(:title, :bio, :page_count, :author)
   	end
 end

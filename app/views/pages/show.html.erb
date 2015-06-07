@@ -1,24 +1,11 @@
-<p>
-	<strong>Article Author:</strong>
-	<%= @article.author %>
-</p>
+<%= render 'pages/header' %>
 
-<p>
-	<strong>Article Title:</strong>
-	<%= @article.title %>
-</p>
+<div class="page-wrap">
+   <div id="header"><h1><em><%= @article.title %></em></h1></div>
+   <div id='author'><a href=/<%= @article.slug %>/bio><%= @article.author %></a></div>
+   <div id='content'>
+   <%= @page.body.html_safe %>
+   </div>
+</div>
 
-<p>
-	<strong>Page Number:</strong>
-	<%= @page.page_number %>
-</p>
-
-<p>
-	<strong>Body:</strong>
-	<%= @page.body.html_safe %>
-</p>
-<p>
-  <%= link_to 'Destroy Page', [@page.article, @page],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<%= render 'pages/footer' %>
