@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
-    resources :articles do
-      resources :pages
+    resources :articles, except: [:show, :update, :destroy] do
+      resources :pages, except: [:show, :update, :destroy] # (this part is also still broken)
     end
 
+  get '/:id/' => 'articles#show', as: :article
+  match '/:id/' => 'articles#update', via: [:patch, :put], as: :article_update
+  delete '/:id/' => 'articles#destroy', via: :delete, as: :article_delete
+
+# almost got everything to work, but this next part still breaks everything ¯\_(ツ)_/¯
+
+  get '/:article_id/:id' => 'pages#show', as: :article_page
+  match '/:article_id/:id' => 'pages#update', via: [:patch, :put], as: :article_page_update
+  delete '/:article_id/:id' => 'pages#destroy', via: :delete, as: :article_page_delete
+
+#  put '/:id/' => 'articles#update', as: :article_update
+#  patch '/:id/' => 'articles#update', as: :article_update
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
