@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
 	validates_presence_of :title, :slug, :author, :bio, :page_count
 	validates :author, uniqueness: { case_sensitive: false }
 
+
 	def author_slug
 		author.split.last.downcase
 	end

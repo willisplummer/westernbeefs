@@ -11,6 +11,14 @@ except: [:index, :show]
     @article = Article.find(params[:id])
   end
 
+  def admin
+    @article = Article.find(params[:id])
+  end
+
+  def bio
+    @article = Article.find(params[:id])
+  end
+  
   def new
   	@article = Article.new
   end
@@ -23,7 +31,7 @@ except: [:index, :show]
   	@article = Article.new(article_params)
 
   	if @article.save
-  		redirect_to articles_path
+      redirect_to article_admin_path(@article)
   	else
   		render 'new'
   	end
@@ -33,7 +41,7 @@ except: [:index, :show]
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to article_admin_path(@article)
     else
       render 'edit'
     end
@@ -48,6 +56,6 @@ except: [:index, :show]
 
   private
   	def article_params
-  		params.require(:article) .permit(:title, :bio, :page_count, :author)
+  		params.require(:article) .permit(:title, :bio, :page_count, :first_page, :author)
   	end
 end

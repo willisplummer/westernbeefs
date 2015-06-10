@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     end
 
   get '/:id/' => 'articles#show', as: :article
+  get '/:id/admin' => 'articles#admin', as: :article_admin
+  get '/:id/bio' => 'articles#bio', as: :article_bio
   match '/:id/' => 'articles#update', via: [:patch, :put], as: :article_update
   delete '/:id/' => 'articles#destroy', via: :delete, as: :article_delete
 

@@ -4,8 +4,8 @@
    <div id="header"><h1><em><%= @article.title %></em></h1></div>
    <div id='author'><a href=/<%= @article.slug %>/bio><%= @article.author %></a></div>
    <div id='content'>
-   <%= @article.first_page.html_safe %>
+   <%= @article.bio.html_safe %>
    </div>
 </div>
 
-<%= render 'articles/footer' %>
+<%= render 'articles/biofooter' %>

@@ -8,14 +8,14 @@ class PagesController < ApplicationController
 	def create
 		@article = Article.find(params[:article_id])
 		@page = @article.pages.create(page_params)
-		redirect_to article_path(@article)
+		redirect_to article_admin_path(@article)
 	end
 
 	def destroy
 		@article = Article.find(params[:article_id])
 		@page = @article.pages.find(params[:id])
 		@page.destroy
-		redirect_to article_path(@article)
+		redirect_to article_admin_path(@article)
 	end
 
 	private

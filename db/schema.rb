@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150531155644) do
     t.string   "title"
     t.string   "author"
     t.string   "slug"
+    t.text     "first_page"
     t.text     "bio"
     t.integer  "page_count"
     t.datetime "created_at", null: false
