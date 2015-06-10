@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
     resources :articles, except: [:show, :update, :destroy] do
-      resources :pages, except: [:show, :update, :destroy] # (this part is also still broken)
+      resources :pages, except: [:show, :update, :destroy]
     end
 
+  get '/admin' => 'articles#admin_index', as: :admin_index
   get '/:id/' => 'articles#show', as: :article
   get '/:id/admin' => 'articles#admin', as: :article_admin
   get '/:id/bio' => 'articles#bio', as: :article_bio
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
   get '/:article_id/:id' => 'pages#show', as: :article_page
   match '/:article_id/:id' => 'pages#update', via: [:patch, :put], as: :article_page_update
   delete '/:article_id/:id' => 'pages#destroy', via: :delete, as: :article_page_delete
+
+ # get '/:article_id/:id/edit' => 'pages#edit', as: :edit_article_page
+
 
 #  put '/:id/' => 'articles#update', as: :article_update
 #  patch '/:id/' => 'articles#update', as: :article_update

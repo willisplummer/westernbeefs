@@ -7,6 +7,10 @@ except: [:index, :show]
   	@articles = Article.all
   end
 
+  def admin_index
+    @articles = Article.all
+  end
+
   def show
     @article = Article.find(params[:id])
   end

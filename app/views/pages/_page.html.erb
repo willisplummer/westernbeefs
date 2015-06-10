@@ -8,11 +8,9 @@
 	<%= page.body.html_safe %>
 </p>
 <p>
+  <%= link_to 'Edit', edit_article_page_path(page.article, page) %> |
+  <%= link_to 'Standard View', [page.article, page] %> |
   <%= link_to 'Destroy Page', [page.article, page],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-</p>
-
-<p> 
-	<%= link_to 'View', [page.article, page] %>
-</p>
+</p><br><br>
