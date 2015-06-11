@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
 
+	http_basic_authenticate_with name: "willis", password: "password", except: :show
+
+
 	def show
 		@article = Article.find(params[:article_id])
   		@page = @article.pages.find(params[:id])

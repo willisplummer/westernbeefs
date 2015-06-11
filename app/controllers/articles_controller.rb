@@ -1,14 +1,13 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "willis", password: "password",
-except: [:index, :show]
+  http_basic_authenticate_with name: "willis", password: "password", except: [:index, :show, :bio]
 
   def index
-  	@articles = Article.all
+  	@articles = Article.all.order(created_at: :desc)
   end
 
   def admin_index
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def show
@@ -55,11 +54,11 @@ except: [:index, :show]
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path
+    redirect_to admin_index_path
   end
 
   private
   	def article_params
-  		params.require(:article) .permit(:title, :bio, :page_count, :first_page, :author)
+  		params.require(:article) .permit(:title, :bio, :author_url, :page_count, :first_page, :author)
   	end
 end

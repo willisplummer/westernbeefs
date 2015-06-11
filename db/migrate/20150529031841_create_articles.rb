@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.string :slug
+      t.string :author_url
       t.text :first_page
       t.text :bio
       t.integer :page_count

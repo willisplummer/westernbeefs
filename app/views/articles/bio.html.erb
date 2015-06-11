@@ -2,7 +2,7 @@
 
 <div class="page-wrap">
    <div id="header"><h1><em><a href=/<%= @article.slug %>><%= @article.title %></a></em></h1></div>
-   <div id='author'><a href=/<%= @article.slug %>/bio><%= @article.author %></a></div>
+   <div id='author'><a href="<%= @article.author_url %>"><%= @article.author %></a></div>
    <div id='content'>
    <%= @article.bio.html_safe %>
    </div>
