@@ -144,7 +144,7 @@
 
 <div id ='content'><center>
   <% @articles.each do |article| %>
-     <a href = /<%= article.slug %>> <%= article.title %> by <%= article.author %></a>
+     <a href = /<%= article.slug %>> <%= strip_tags article.title %> by <%= article.author %></a>
      <br><br>
   <% end %>
 </center></div>

@@ -27,6 +27,8 @@ gem 'ckeditor'
 
 gem 'friendly_id'
 
+gem 'rails-html-sanitizer'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -3,6 +3,7 @@ class CreatePages < ActiveRecord::Migration
     create_table :pages do |t|
       t.integer :page_number
       t.string :slug
+      t.string :page_title
       t.text :body
       t.references :article, index: true, foreign_key: true
 

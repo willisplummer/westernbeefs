@@ -18,16 +18,20 @@ ActiveRecord::Schema.define(version: 20150531155644) do
     t.string   "author"
     t.string   "slug"
     t.string   "author_url"
+    t.string   "first_page_title"
     t.text     "first_page"
     t.text     "bio"
     t.integer  "page_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "header_width"
+    t.integer  "body_width"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "pages", force: :cascade do |t|
     t.integer  "page_number"
     t.string   "slug"
+    t.string   "page_title"
     t.text     "body"
     t.integer  "article_id"
     t.datetime "created_at",  null: false
