@@ -10,17 +10,11 @@ Rails.application.routes.draw do
   match '/:id/' => 'articles#update', via: [:patch, :put], as: :article_update
   delete '/:id/' => 'articles#destroy', via: :delete, as: :article_delete
 
-# almost got everything to work, but this next part still breaks everything ¯\_(ツ)_/¯
-
   get '/:article_id/:id' => 'pages#show', as: :article_page
   match '/:article_id/:id' => 'pages#update', via: [:patch, :put], as: :article_page_update
   delete '/:article_id/:id' => 'pages#destroy', via: :delete, as: :article_page_delete
 
- # get '/:article_id/:id/edit' => 'pages#edit', as: :edit_article_page
 
-
-#  put '/:id/' => 'articles#update', as: :article_update
-#  patch '/:id/' => 'articles#update', as: :article_update
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
