@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   delete '/:article_id/:id' => 'pages#destroy', via: :delete, as: :article_page_delete
 
 
+  get '/:article_id/:story_id' => 'story#show', as: :story_show
+  match '/:article_id/:story_id' => 'story#update', via: [:patch, :put, :update], as: :story_update
+  delete '/:article_id/:story_id' => 'story#destroy', via: [:delete, :destroy], as: :story_delete
+  show '/:article_id/:story_id' => 'story#show', as: :story_show
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
