@@ -1,3 +1,6 @@
 class StoryPage < ActiveRecord::Base
-  belongs_to :story
+	extend FriendlyId
+	friendly_id :slug
+  	
+  	belongs_to :story
 end

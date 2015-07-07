@@ -7,4 +7,11 @@
 	<strong>Page Count:</strong>
 	<%= story.page_count %>
 </p>
+<p>
+  <%= link_to 'Edit', edit_article_story_path(story.article, story) %> |
+  <%= link_to 'Standard View', [story.article, story] %> |
+  <%= link_to 'Destroy Page', [story.article, story],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p><br><br>
 <br><br>

@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20150706043345) do
     t.text     "first_page"
     t.text     "bio"
     t.integer  "page_count"
-    t.integer  "header_width"
     t.integer  "body_width"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
