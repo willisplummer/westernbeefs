@@ -1,11 +1,11 @@
 <%= form_for([@article, @article.stories.build]) do |f| %>
 	<p>
 		<%= f.label :page_count %><br>
-		<%= f.integer :page_count %>
+		<%= f.number_field :page_count %>
 	</p>
 	<p>
 		<%= f.label :title %><br>
-		<%= f.string :title %>
+		<%= f.text_field :title %>
 	</p>
 	<p>
 		<%= f.submit %>

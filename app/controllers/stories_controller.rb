@@ -33,7 +33,7 @@ class StoriesController < ApplicationController
    		else
       		render 'edit'
     	end
-  end
+  	end
 
 	def destroy
 		@article = Article.find(params[:article_id])
