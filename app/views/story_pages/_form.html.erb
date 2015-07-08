@@ -1,0 +1,17 @@
+<%= form_for([@article @story, @article.@story.story_pages.build]) do |f| %>
+	<p>
+		<%= f.label :page_number %><br>
+		<%= f.number_field :page_number %>
+	</p>
+	<p>
+		<%= f.label :page_title %><br>
+		<%= f.text_field :page_title %>
+	</p>
+	<p>
+		<%= f.label :body %><br>
+		<%= f.text_field :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

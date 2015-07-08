@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
     resources :articles, except: [:show, :update, :destroy] do
-      resources :stories
+      resources :stories do
+          resources :story_pages
+      end
       resources :pages, except: [:show, :update, :destroy]
+      
     end
 
   get '/admin' => 'articles#admin_index', as: :admin_index
