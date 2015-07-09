@@ -6,7 +6,7 @@ class StoryPagesController < ApplicationController
 	def show
 		@article = Article.find(params[:article_id])
   		@story = @article.stories.find(params[:story_id])
-  		@story_page = @article.stories.story_pages.find(params[story_page_params])
+  		@story_page = @article.stories.story_pages.find(params[:id])
  	end
 
  	def new

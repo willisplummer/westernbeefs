@@ -1,17 +1,21 @@
-<%= form_for([@article @story, @article.@story.story_pages.build]) do |f| %>
-	<p>
-		<%= f.label :page_number %><br>
-		<%= f.number_field :page_number %>
-	</p>
-	<p>
-		<%= f.label :page_title %><br>
-		<%= f.text_field :page_title %>
-	</p>
-	<p>
-		<%= f.label :body %><br>
-		<%= f.text_field :body %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
+<%= form_for @article do |f| %>
+	<% f.fields_for :stories do |sf| %>
+		<% sf.fields_for :story_pages do |spf| %>
+			<p>
+				<%= spf.label :page_number %><br>
+				<%= spf.number_field :page_number %>
+			</p>
+			<p>
+				<%= spf.label :page_title %><br>
+				<%= spf.text_field :page_title %>
+			</p>
+			<p>
+				<%= spf.label :body %><br>
+				<%= spf.text_field :body %>
+			</p>
+			<p>
+				<%= spf.submit %>
+			</p>
+		<% end %>
+	<% end %>
 <% end %>
