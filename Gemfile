@@ -29,6 +29,10 @@ gem 'friendly_id'
 
 gem 'rails-html-sanitizer'
 
+gem 'nokogiri'
+
+gem 'css_parser'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

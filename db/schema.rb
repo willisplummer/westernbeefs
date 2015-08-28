@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531155644) do
+ActiveRecord::Schema.define(version: 20150706043345) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20150531155644) do
     t.text     "first_page"
     t.text     "bio"
     t.integer  "page_count"
-    t.integer  "header_width"
     t.integer  "body_width"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -39,5 +38,28 @@ ActiveRecord::Schema.define(version: 20150531155644) do
   end
 
   add_index "pages", ["article_id"], name: "index_pages_on_article_id"
+
+  create_table "stories", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.integer  "page_count"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "stories", ["article_id"], name: "index_stories_on_article_id"
+
+  create_table "story_pages", force: :cascade do |t|
+    t.integer  "page_number"
+    t.text     "body"
+    t.string   "slug"
+    t.string   "page_title"
+    t.integer  "story_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "story_pages", ["story_id"], name: "index_story_pages_on_story_id"
 
 end
