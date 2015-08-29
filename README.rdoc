@@ -1,28 +1,21 @@
-== README
+to do:
+=====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- polymorphic pages that can be associated with articles or stories(which are nested under articles)
 
-Things you may want to cover:
+- stories scraper for old site
 
-* Ruby version
+- update scrapers to skip leading <br>'s on page content and author bios
 
-* System dependencies
+- remove rich text editor (has way too many options, sends way too much info, loads inconsistently) - maybe replace with something that just tracks line breaks, bold, and italics.. this?
 
-* Configuration
+- validate author url input begins with http://
 
-* Database creation
+- save password info in a private file
 
-* Database initialization
+wishlist:
+=====
 
-* How to run the test suite
+- make page count automated or create a drop down to select page numbers based on the page count that you input?
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- manual slug overwrite option in article form
