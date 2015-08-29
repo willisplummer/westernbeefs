@@ -1,5 +1,7 @@
 <h1>Edit Page <%= @page.page_number %> of '<%= @article.title %>' by <%= @article.author %></h1>
 
-<%= render 'pages/form' %>
+<%= form_for(@page, :url => article_page_update_path(@article, @page)) do |form| %>
+	<%= render partial: 'pages/form', locals: {f: form} %>
+<% end %>
 
-<%= link_to 'Back', article_admin_path %>
+<%= link_to 'Back', article_admin_path(@article) %>

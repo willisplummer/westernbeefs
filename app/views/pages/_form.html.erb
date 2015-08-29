@@ -1,13 +1,11 @@
-<%= form_for([@article, @article.pages.build]) do |f| %>
-	<p>
-		<%= f.label :page_number %><br>
-		<%= f.text_field :page_number %>
-	</p>
-	<p>
-		<%= f.label :body %><br>
-		<%= f.cktext_area :body, rows: 10 %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<p>
+	<%= f.label :page_number %><br>
+	<%= f.text_field :page_number %>
+</p>
+<p>
+	<%= f.label :body %><br>
+	<%= f.text_area :body, cols: 200, rows: 40 %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
