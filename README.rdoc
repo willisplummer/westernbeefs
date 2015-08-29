@@ -1,5 +1,4 @@
-to do:
-=====
+###to do:
 
 - polymorphic pages that can be associated with articles or stories(which are nested under articles)
 
@@ -13,8 +12,7 @@ to do:
 
 - save password info in a private file
 
-wishlist:
-=====
+###wishlist:
 
 - make page count automated or create a drop down to select page numbers based on the page count that you input?
 
