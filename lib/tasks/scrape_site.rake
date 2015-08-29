@@ -15,7 +15,7 @@ task :fetch_articles => :environment do
 				0
 			end
 		else
-			nil
+			0
 		end
 	end
 
@@ -68,6 +68,6 @@ task :fetch_articles => :environment do
 		author_bio  = bio_page.css('#content').inner_html
 		page_count = get_page_count(bio_page)
 
-		new_article.update_attributes(:title => title, :bio => author_bio, :author_url => author_url, :page_count => page_count, :first_page => first_page_body, :author => author, :body_width => body_width)
+		new_article.update_attributes(:title => title, :bio => author_bio, :author_url => author_url, :page_count => page_count, :first_page => first_page_body, :author => author, :slug => slug, :body_width => body_width)
 	end
 end
