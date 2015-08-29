@@ -6,11 +6,11 @@ to do:
 
 - stories scraper for old site
 
-- update scrapers to skip leading <br>'s on page content and author bios
+- update scrapers to skip leading `<br>`'s on page content and author bios
 
 - remove rich text editor (has way too many options, sends way too much info, loads inconsistently) - maybe replace with something that just tracks line breaks, bold, and italics.. this?
 
-- validate author url input begins with http://
+- ~~validate author url input begins with http://~~
 
 - save password info in a private file
 
