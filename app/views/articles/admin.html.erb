@@ -36,7 +36,9 @@
 <%= render @article.pages %>
 
 <h2>Add a page:</h2>
-<%= render 'pages/form' %>
+<%= form_for([@article, @article.pages.build]) do |form| %>
+	<%= render partial: 'pages/form', locals: {f: form} %>
+<% end %>
 
 <br><br>
 
