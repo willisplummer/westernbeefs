@@ -1,6 +1,6 @@
 class StoryPagesController < ApplicationController
 
-	http_basic_authenticate_with name: "willis", password: "password", except: :show
+	http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"], except: :show
 
 
 	def show

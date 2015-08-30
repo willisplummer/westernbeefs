@@ -1,0 +1,13 @@
+defaults: &defaults
+  username: willis
+  password: plummer
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  username: ""
+  password: ""
