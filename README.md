@@ -33,7 +33,9 @@ setup:
 bundle
 cp config/application.example.yml config/application.yml
  ```
-Enter the correct username and password for production.
+
+(Enter the correct username and password for production in config/application.yml)
+ 
  ```
 rake db:setup
 rails s
