@@ -1,6 +1,6 @@
 defaults: &defaults
-  BLOG_USERNAME: willis
-  BLOG_PASSWORD: plummer
+  BLOG_USERNAME: "willis"
+  BLOG_PASSWORD: "plummer"
 
 development:
   <<: *defaults
@@ -9,5 +9,5 @@ test:
   <<: *defaults
 
 production:
-  BLOG_USERNAME: username
-  BLOG_PASSWORD: password
+  BLOG_USERNAME: ""
+  BLOG_PASSWORD: ""

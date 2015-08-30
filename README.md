@@ -10,7 +10,7 @@ to do:
 
 - scraper pulled all the `&nbsp`'s but the site doesn't like them. is there a way to automate converting them to something it will accept?
 
-- remove rich text editor (has way too many options, sends way too much info, loads inconsistently) - maybe replace with something that just tracks line breaks, bold, and italics.. this?
+- remove rich text editor (has way too many options, sends way too much info, loads inconsistently) - maybe replace with something that just tracks line breaks, bold, and italics.. something like [this?](https://github.com/xing/wysihtml5)
 
 - ~~validate author url input begins with http://~~
 
