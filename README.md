@@ -27,6 +27,14 @@ wishlist:
 - manual slug overwrite option in article form
 
 
-Setup
+setup:
 ====================
-copy application.yml.example to application.yml and create a username and password
+ ```
+bundle
+cp config/application.example.yml config/application.yml
+ ```
+Enter the correct username and password for production.
+ ```
+rake db:setup
+rails s
+ ```
