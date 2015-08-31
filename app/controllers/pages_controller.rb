@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
-
 	http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"], except: :show
-
+	before_filter :load_paginable
 
 	def show
 		@article = Article.find(params[:article_id])

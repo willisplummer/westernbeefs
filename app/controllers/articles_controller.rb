@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-
   http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"], except: [:index, :show, :bio]
+  before_filter :load_paginable
 
   def index
   	@articles = Article.all.order(created_at: :desc)

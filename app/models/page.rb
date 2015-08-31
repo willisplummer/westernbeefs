@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-	belongs_to :article
+	belongs_to :paginable, polymorphic: true
 
 	def page_prev
 		if page_number == 1

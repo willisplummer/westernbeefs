@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706043345) do
+ActiveRecord::Schema.define(version: 20150831034233) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -33,11 +33,14 @@ ActiveRecord::Schema.define(version: 20150706043345) do
     t.string   "page_title"
     t.text     "body"
     t.integer  "article_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "paginable_id"
+    t.string   "paginable_type"
   end
 
   add_index "pages", ["article_id"], name: "index_pages_on_article_id"
+  add_index "pages", ["paginable_id", "paginable_type"], name: "index_pages_on_paginable_id_and_paginable_type"
 
   create_table "stories", force: :cascade do |t|
     t.string   "title"

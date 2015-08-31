@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	has_many :pages, dependent: :destroy
+	has_many :pages, as: :paginable, dependent: :destroy
 	has_many :stories, dependent: :destroy
 	
 	validates_presence_of :title, :slug, :author, :bio, :page_count
