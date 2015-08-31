@@ -1,22 +1,28 @@
 to do:
 ====================
 
+- deploy a beta version of the new site on heroku
 
 - polymorphic pages that can be associated with articles or stories (which are nested under articles)
 
 - stories scraper for old site
 
-- update scrapers to skip leading `<br>`'s on page content and author bios
+- customize ckeditor to only provide basic functionality (bold, italic, link, indent, and linebreaks). it seems like this can be done using their toolbar configurator utility [found here](http://docs.ckeditor.com/#!/guide/dev_toolbar) but they suggest that you not just edit the config file because all of the plugins will still be pre-loaded. more info about the rails integration [here](https://github.com/galetahub/ckeditor).
 
-- scraper pulled all the `&nbsp`'s but the site doesn't like them. is there a way to automate converting them to something it will accept?
+- find a way of handling longer stories where the index on the first page is custom formatted w/ css
 
-- remove rich text editor (has way too many options, sends way too much info, loads inconsistently) - maybe replace with something that just tracks line breaks, bold, and italics.. something like [this?](https://github.com/xing/wysihtml5)
+- update scrapers to skip leading `<br>`'s on page content and author bios. 
+
+- improve layout to more accurately match the original. (figure out whether or not to keep the two leading linebreaks with page title.)
+
+## done
+
+- ~~scraper pulled all the `&nbsp`'s but the site doesn't like them. find and replace with `&nbsp;` before writing to db~~
 
 - ~~validate author url input begins with http://~~
 
 - ~~save password info in a private file~~
 
-- deploy a beta version of the new site on heroku
 
 wishlist:
 ====================

@@ -46,6 +46,10 @@ task :fetch_articles => :environment do
 		Nokogiri::HTML(open(bio_url).read)
 	end
 
+	def fix_non_breaking_spaces(page_body)
+		page_body.gsub(/&amp;nbsp/, "&nbsp;")
+	end
+
 	BASE_URL = "http://westernbeefs.com"
 	home_page = Nokogiri::HTML(open(BASE_URL).read)
 	#selects only links (e.g. <a href="">) inside of the content div
@@ -56,7 +60,7 @@ task :fetch_articles => :environment do
 		content_url = get_content_url(content_links, i)
 		#moving to the first page of the collection
 		first_page = get_first_page(content_url)
-		first_page_body  = first_page.css('#content').inner_html
+		first_page_body  = fix_non_breaking_spaces(first_page.css('#content').inner_html)
 		slug = get_slug(content_url)
 		body_width = get_body_width(content_url)
 		
