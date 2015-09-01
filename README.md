@@ -3,7 +3,7 @@ to do:
 
 - deploy a beta version of the new site on heroku
 
-- polymorphic pages that can be associated with articles or stories (which are nested under articles)
+- polymorphic pages that can be associated with articles or stories (which are nested under articles) - maybe STI would work for this purpose?
 
 - stories scraper for old site
 
