@@ -3,6 +3,8 @@ to do:
 
 - deploy a beta version of the new site on heroku
 
+- on admin article view, [sort pages by page number](https://github.com/willisplummer/blog/blob/master/app/views/articles/admin.html.erb#L36)
+
 - polymorphic pages that can be associated with articles or stories (which are nested under articles) - maybe STI would work for this purpose?
 
 - stories scraper for old site
