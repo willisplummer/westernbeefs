@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 	before_filter :load_paginable
 
 	def show
+		@article = Article.find(params[:article_id])
   		@page = @paginable.pages.find(params[:id])
  	end
 
@@ -11,28 +12,31 @@ class PagesController < ApplicationController
   	end
 
 	def edit
+		@article = Article.find(params[:article_id])
   		@page = @paginable.pages.find(params[:id])
   	end
 
 	def create
 		@page = @paginable.pages.create(page_params)
-		redirect_to @paginable
+		redirect_to article_admin_path(@article)
 	end
 
 	def update
+		@article = Article.find(params[:article_id])
     	@page = @paginable.pages.find(params[:id])
 
     	if @page.update(page_params)
-      		redirect_to @paginable
+      		redirect_to article_admin_path(@article)
    		else
       		render 'edit'
     	end
   	end
 
 	def destroy
+		@article = Article.find(params[:article_id])
 		@page = @paginable.pages.find(params[:id])
 		@page.destroy
-		redirect_to @paginable
+		redirect_to article_admin_path(@article)
 	end
 
 private

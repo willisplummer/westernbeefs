@@ -18,7 +18,7 @@ class Page < ActiveRecord::Base
 	end
 
 	def page_next
-		if page_number == article.page_count
+		if page_number == paginable.page_count
 			'bio'
 		else
 			page_number + 1
@@ -34,5 +34,5 @@ class Page < ActiveRecord::Base
 	end
 
 	extend FriendlyId
-	friendly_id :page_number_zerod, use: [:scoped, :finders], :scope => :article
+	friendly_id :page_number_zerod, use: [:scoped, :finders], :scope => :paginable
 end
