@@ -36,11 +36,11 @@ class PagesController < ApplicationController
 	end
 
 private
-	def load_commentable
-	  @commentable = if params[:story_id]
-	    Story.find(params[:story_id])
-	  elsif params[:article_id]
-	    Article.find(params[:article_id])
+	def load_paginable
+		if params[:story_id]
+		  @paginable = Story.find(params[:story_id])
+		elsif params[:article_id]
+	      @paginable = Article.find(params[:article_id])
 	  end
 	end
 
