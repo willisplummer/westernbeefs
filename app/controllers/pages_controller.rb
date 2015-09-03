@@ -17,7 +17,6 @@ class PagesController < ApplicationController
   	end
 
 	def create
-		@article = Article.find(params[:article_id])
 		@page = @paginable.pages.create(page_params)
 		redirect_to article_admin_path(@article)
 	end
