@@ -35,5 +35,4 @@ class Article < ActiveRecord::Base
 
 	extend FriendlyId
 	friendly_id :author_slug, use: [:slugged, :finders]
-	
 end

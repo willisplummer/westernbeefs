@@ -3,5 +3,5 @@ class Story < ActiveRecord::Base
 	has_many :pages, as: :paginable, dependent: :destroy
 
 	extend FriendlyId
-	friendly_id :slug
+	friendly_id :slug, use: [:slugged, :finders]
 end

@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   resources :articles, except: [:show, :update, :destroy] do
-    resources :stories
+    resources :stories, except: [:show, :update, :destroy]
     resources :pages, except: [:show, :update, :destroy]
   end
 
-  resources :stories do
+  resources :stories, only: [] do
     resources :pages, except: [:show, :update, :destroy]
   end
 
   get '/admin' => 'articles#admin_index', as: :admin_index
   get '/:id/' => 'articles#show', as: :article
-  get '/:id/admin' => 'articles#admin', as: :article_admin
+  get '/admin/:id/' => 'articles#admin', as: :article_admin
   get '/:id/bio' => 'articles#bio', as: :article_bio
   match '/:id/' => 'articles#update', via: [:patch, :put], as: :article_update
   delete '/:id/' => 'articles#destroy', via: :delete, as: :article_delete
@@ -19,9 +19,13 @@ Rails.application.routes.draw do
   match '/:article_id/:id' => 'pages#update', via: [:patch, :put], as: :article_page_update
   delete '/:article_id/:id' => 'pages#destroy', via: :delete, as: :article_page_delete
 
-  #get '/:article_id/:story_id/:id' => 'pages#show', as: :story_page
-  #match '/:article_id/:story_id/:id' => 'storypages#update', via: [:patch, :put], as: :story_page_update
-  #delete '/:article_id/:story_id/:id' => 'storypages#destroy', via: :delete, as: :story_page_delete
+  get 'admin/:article_id/:id' => 'stories#show', as: :article_story_admin
+  match 'admin/:article_id/:id' => 'stories#update', via: [:patch, :put], as: :article_story_update
+  delete 'admin/:article_id/:id' => 'stories#destroy', via: :delete, as: :article_story_delete
+
+  get '/:article_id/:story_id/:id' => 'pages#show', as: :story_page
+  match '/:article_id/:story_id/:id' => 'pages#update', via: [:patch, :put], as: :story_page_update
+  delete '/:article_id/:story_id/:id' => 'pages#destroy', via: :delete, as: :story_page_delete
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
