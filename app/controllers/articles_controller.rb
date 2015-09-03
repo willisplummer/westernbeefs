@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-
   http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"], except: [:index, :show, :bio]
 
   def index
@@ -56,9 +55,8 @@ class ArticlesController < ApplicationController
 
     redirect_to admin_index_path
   end
-
-  private
-  	def article_params
-  		params.require(:article) .permit(:title, :bio, :author_url, :page_count, :first_page, :author, :first_page_title, :body_width)
-  	end
+private
+	def article_params
+		params.require(:article) .permit(:title, :bio, :author_url, :page_count, :first_page, :author, :first_page_title, :body_width)
+	end
 end

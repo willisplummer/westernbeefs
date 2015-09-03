@@ -1,7 +1,7 @@
 class Story < ActiveRecord::Base
+ 	belongs_to :article
+	has_many :pages, as: :paginable, dependent: :destroy
+
 	extend FriendlyId
 	friendly_id :slug
-
- 	belongs_to :article
- 	has_many :story_pages
 end
