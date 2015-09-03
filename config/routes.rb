@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :stories, only: [] do
-    resources :pages, except: [:show, :update, :destroy]
+    resources :pages, except: [:edit, :show, :update, :destroy]
   end
 
   get '/admin' => 'articles#admin_index', as: :admin_index
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   match 'admin/:article_id/:id' => 'stories#update', via: [:patch, :put], as: :article_story_update
   delete 'admin/:article_id/:id' => 'stories#destroy', via: :delete, as: :article_story_delete
 
+  get '/:article_id/:story_id/:id/edit' => 'pages#edit', as: :edit_story_page
   get '/:article_id/:story_id/:id' => 'pages#show', as: :story_page
   match '/:article_id/:story_id/:id' => 'pages#update', via: [:patch, :put], as: :story_page_update
   delete '/:article_id/:story_id/:id' => 'pages#destroy', via: :delete, as: :story_page_delete
