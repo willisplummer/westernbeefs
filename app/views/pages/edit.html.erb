@@ -1,9 +1,9 @@
 <% if @page.paginable_type == "Article" %>
-	<h1>Edit Page <%= @page.page_number %> of '<%= @article.title %>' by <%= @article.author %></h1>
-	<%= form_for(@page, :url => article_page_update_path(@article, @page)) do |form| %>
+	<h1>Edit Page <%= @page.page_number %> of '<%= @paginable.title %>' by <%= @paginable.author %></h1>
+	<%= form_for(@page, :url => article_page_update_path(@paginable, @page)) do |form| %>
 		<%= render partial: 'pages/form', locals: {f: form} %>
 	<% end %>
-	<%= link_to 'Back', article_admin_path(@article) %>
+	<%= link_to 'Back', article_admin_path(@paginable) %>
 
 <% elsif @page.paginable_type == "Story" %>
 	<h1>Edit page <%= @page.page_number %> of '<%= @paginable.title %>' from the collection '<%= @paginable.article.title %>' by <%= @paginable.article.author %></h1>
