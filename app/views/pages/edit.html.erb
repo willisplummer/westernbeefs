@@ -1,7 +1,14 @@
-<h1>Edit Page <%= @page.page_number %> of '<%= @article.title %>' by <%= @article.author %></h1>
+<% if @page.paginable_type == "Article" %>
+	<h1>Edit Page <%= @page.page_number %> of '<%= @article.title %>' by <%= @article.author %></h1>
+	<%= form_for(@page, :url => article_page_update_path(@article, @page)) do |form| %>
+		<%= render partial: 'pages/form', locals: {f: form} %>
+	<% end %>
+	<%= link_to 'Back', article_admin_path(@article) %>
 
-<%= form_for(@page, :url => article_page_update_path(@article, @page)) do |form| %>
-	<%= render partial: 'pages/form', locals: {f: form} %>
+<% elsif @page.paginable_type == "Story" %>
+	<h1>Edit page <%= @page.page_number %> of '<%= @paginable.title %>' from the collection '<%= @paginable.article.title %>' by <%= @paginable.article.author %></h1>
+	<%= form_for(@page, :url => story_page_update_path(@paginable.article, @paginable, @page)) do |form| %>
+		<%= render partial: 'pages/form', locals: {f: form} %>
+	<% end %>
+	<%= link_to 'Back', article_story_admin_path(@paginable.article, @paginable) %>
 <% end %>
-
-<%= link_to 'Back', article_admin_path(@article) %>
