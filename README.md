@@ -1,13 +1,15 @@
 to do:
 ====================
 
+- fix friendlyid redundancy issues on story-page slugs
+
 - deploy a beta version of the new site on heroku
 
+- make page count automated (e.g. page_count = Article.pages.count)
+
+- manual slug overwrite option in article form
+
 - on admin article view, [sort pages by page number](https://github.com/willisplummer/blog/blob/master/app/views/articles/admin.html.erb#L36)
-
-- polymorphic pages that can be associated with articles or stories (which are nested under articles) - maybe STI would work for this purpose?
-
-- stories scraper for old site
 
 - customize ckeditor to only provide basic functionality (bold, italic, link, indent, and linebreaks). it seems like this can be done using their toolbar configurator utility [found here](http://docs.ckeditor.com/#!/guide/dev_toolbar) but they suggest that you not just edit the config file because all of the plugins will still be pre-loaded. more info about the rails integration [here](https://github.com/galetahub/ckeditor).
 
@@ -25,14 +27,9 @@ to do:
 
 - ~~save password info in a private file~~
 
+- ~~polymorphic pages that can be associated with articles or stories (which are nested under articles) - maybe STI would work for this purpose?~~
 
-wishlist:
-====================
-
-
-- make page count automated or create a drop down to select page numbers based on the page count that you input?
-
-- manual slug overwrite option in article form
+- ~~stories scraper for old site~~
 
 
 setup:
