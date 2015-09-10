@@ -15,6 +15,8 @@ to do:
 
 - improve layout to more accurately match the original. (figure out whether or not to keep the two leading linebreaks with page title.)
 
+- refactor, refactor, refactor!
+
 ## done
 
 - ~~scraper pulled all the `&nbsp`'s but the site doesn't like them. find and replace with `&nbsp;` before writing to db~~
