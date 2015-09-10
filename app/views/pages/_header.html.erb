@@ -4,7 +4,6 @@
     <% unless @article == nil %>
       <title><%= @article.author %> | <%= strip_tags @article.title %></title>
     <% end %>
-<%= favicon_link_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<% unless @article == nil %>
     <meta name="author" content="<%= @article.author %>">
