@@ -1,10 +1,6 @@
 to do:
 ====================
 
-- fix friendlyid redundancy issues on story-page slugs
-
-- deploy a beta version of the new site on heroku
-
 - make page count automated (e.g. page_count = Article.pages.count)
 
 - manual slug overwrite option in article form
@@ -31,6 +27,9 @@ to do:
 
 - ~~stories scraper for old site~~
 
+- ~~fix friendlyid redundancy issues on story-page slugs~~
+
+- ~~deploy a beta version of the new site on heroku~~
 
 setup:
 ====================
