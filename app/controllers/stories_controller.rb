@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-	http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"]
+	http_basic_authenticate_with name: ENV["my_admin_username"], password: ENV["my_admin_password"]
 
 
 	def show
