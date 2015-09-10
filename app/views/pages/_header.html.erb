@@ -1,11 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang='en'>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
-    <title><%= @article.author %> | <%= strip_tags @article.title %></title>
-<link rel="shortcut icon" href="http://www.iconj.com/ico/5/t/5tg8bg5469.ico" type="image/x-icon" />
+    <% unless @article == nil %>
+      <title><%= @article.author %> | <%= strip_tags @article.title %></title>
+    <% end %>
+<%= favicon_link_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="author" content="<%= @article.author %>">
-	<style type="text/css" media="screen, print, projection">
+	<% unless @article == nil %>
+    <meta name="author" content="<%= @article.author %>">
+	<% end %>
+  <style type="text/css" media="screen, print, projection">
 
     a:link {
         text-decoration: none;
@@ -74,7 +78,11 @@ html, body {
     
     #content {
         line-height: 165%;
-        width: <%= @article.body_width %>px;
+        <% if @article.nil? == false %>
+          width: <%= @article.body_width %>px;
+        <% else %>
+          width: 600px;
+        <% end %>
         margin-left: auto ;
         margin-right: auto ;
         text-align: justify;
@@ -110,8 +118,6 @@ html, body {
 
 
 <!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:card" content="summary" /><meta name="twitter:description" content="" /><meta name="twitter:url" content="" /><meta name="twitter:site" content="tumblr" /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=westernbeefs&amp;postID=&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=westernbeefs&amp;postID=&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=westernbeefs&amp;postID=&amp;referrer=twitter-cards" />
-
-<script src="http://assets.tumblr.com/assets/scripts/tumblelog.js?_v=a4169182721d644dacd145af89115b95"></script>
 
 <link rel="stylesheet" type="text/css" href="http://assets.tumblr.com/fonts/gibson/stylesheet.css?v=3">
 <meta http-equiv="x-dns-prefetch-control" content="off"/>
