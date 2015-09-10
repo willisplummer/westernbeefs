@@ -47,5 +47,5 @@ class Page < ActiveRecord::Base
 	end
 
 	extend FriendlyId
-	friendly_id :page_number_zerod, use: [:scoped, :finders], :scope => :paginable
+	friendly_id :page_number_zerod, use: [:scoped, :finders], :scope => [:paginable, :paginable_type]
 end
