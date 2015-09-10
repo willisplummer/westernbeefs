@@ -1,6 +1,5 @@
 class StoriesController < ApplicationController
-
-	http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"], except: :show
+	http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"]
 
 
 	def show
@@ -44,6 +43,6 @@ class StoriesController < ApplicationController
 
 	private
 		def story_params
-			params.require(:story).permit(:title, :page_count)
+			params.require(:story).permit(:title, :page_count, :slug)
 		end
 end

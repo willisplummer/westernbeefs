@@ -9,8 +9,8 @@
 </p>
 <p>
   <%= link_to 'Edit', edit_article_story_path(story.article, story) %> |
-  <%= link_to 'Standard View', [story.article, story] %> |
-  <%= link_to 'Destroy Page', [story.article, story],
+  <%= link_to 'Admin View', article_story_admin_path(story.article, story) %> |
+  <%= link_to 'Delete Story', article_story_delete_path(story.article, story),
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p><br><br>

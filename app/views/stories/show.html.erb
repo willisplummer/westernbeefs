@@ -18,5 +18,10 @@
 	<%= @story.page_count %>
 </p>
 
+<h2>Story Pages:</h2>
+<%= render @story.pages %>
+
 <h2>Add a story page:</h2>
-<%= render 'story_pages/form' %>
+<%= form_for([@story, @story.pages.build]) do |form| %>
+	<%= render partial: 'pages/form', locals: {f: form} %>
+<% end %>
