@@ -2,7 +2,9 @@
 
 <div class="page-wrap">
    <div id="header"><h1><em><%= @article.title.html_safe %></em></h1></div>
-   <div id='author'><a href=/<%= @article.slug %>/bio><%= @article.author %></a></div>
+   <div id='author'>
+    <%= link_to @article.author, article_bio_path(id: @article.slug) %>
+   </div>   
    <div id='content'>
    <% if @article.first_page_title != "" %>
      <%= @article.first_page_title %>

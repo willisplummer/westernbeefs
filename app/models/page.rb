@@ -5,41 +5,38 @@ class Page < ActiveRecord::Base
 		p.to_s.rjust(2, '0')
 	end
 
+
+#these should both be helpers 
+
 	def page_prev
-		if paginable_type == "Article"
-			if page_number == 1
-				"#{paginable.slug}"
-			else
-				prev_page = page_nav_zerod(page_number - 1)
-				"#{paginable.slug}/#{prev_page}"
-			end
-		elsif paginable_type == "Story"
-			if page_number == 1
-				"#{paginable.article.slug}"
-			else
-				prev_page = page_nav_zerod(page_number - 1)
-				"#{paginable.article.slug}/#{paginable.slug}/#{prev_page}"
-			end
+		path = []
+		prev_page = page_nav_zerod(page_number - 1)
+
+		case paginable_type
+		when "Article"
+			path << paginable.slug
+			path << prev_page if page_number > 1
+		when "Story"
+			path << paginable.article.slug
+			path << [paginable.slug, prev_page] if page_number > 1
 		end
+
+		path.join('/')
 	end
 
 	def page_next
-		if paginable_type == "Article"
-			if page_number == paginable.page_count
-				"#{paginable.slug}/bio"
-			else
-				next_page = page_nav_zerod(page_number + 1)
-				"#{paginable.slug}/#{next_page}"
-			end
-		elsif paginable_type == "Story"
-			if page_number == paginable.page_count
-				"#{paginable.article.slug}"
-			else
-				page_number + 1
-				next_page = page_nav_zerod(page_number + 1)
-				"#{paginable.article.slug}/#{paginable.slug}/#{next_page}"
-			end
+		path = []
+		next_page = page_nav_zerod(page_number + 1)
+		case paginable_type
+		when "Article"
+			path << paginable.slug
+			page_number == paginable.page_count ? path << "bio" : path << next_page
+		when "Story"
+			path << paginable.article.slug
+			path << [paginable.slug, next_page] if page_number != paginable.page_count
 		end
+
+		path.join('/')
 	end
 
 	def page_number_zerod
