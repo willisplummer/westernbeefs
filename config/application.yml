@@ -9,5 +9,5 @@ test:
   <<: *defaults
 
 production:
-  BLOG_USERNAME: "wmp224"
-  BLOG_PASSWORD: "LNfnjVY7tWKxBpXLPj.mEh4uRcd"
+  BLOG_USERNAME: ENV['my_admin_username']
+  BLOG_PASSWORD: ENV['my_admin_password']
