@@ -19,7 +19,7 @@
 </p>
 
 <h2>Story Pages:</h2>
-<%= render @story.pages %>
+<%= render @story.pages.sort_by { |page| page.page_number } %>
 
 <h2>Add a story page:</h2>
 <%= form_for([@story, @story.pages.build]) do |form| %>

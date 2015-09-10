@@ -2,8 +2,10 @@ class Article < ActiveRecord::Base
 	has_many :pages, as: :paginable, dependent: :destroy
 	has_many :stories, dependent: :destroy
 	
-	validates_presence_of :title, :slug, :author, :bio, :page_count, :first_page
+	validates_presence_of :title, :author, :slug, :bio, :page_count, :first_page
 	
+	validates :slug, uniqueness: { case_sensitive: false }
+
 	validates :author, uniqueness: { case_sensitive: false }
 
 	validates :author_url, allow_blank: true, format: {
@@ -20,6 +22,10 @@ class Article < ActiveRecord::Base
 
 	def author_slug
 		author.split.last.downcase
+	end
+
+	def page_count 
+		pages.count
 	end
 
 	def page_count_zerod

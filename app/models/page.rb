@@ -1,7 +1,10 @@
 class Page < ActiveRecord::Base
 	belongs_to :paginable, polymorphic: true
 
-	def page_nav_zerod(p)
+	validates_numericality_of :page_number, greater_than: 0
+	validates :page_number, uniqueness: true
+
+	def page_zerod(p)
 		p.to_s.rjust(2, '0')
 	end
 
@@ -10,7 +13,7 @@ class Page < ActiveRecord::Base
 
 	def page_prev
 		path = []
-		prev_page = page_nav_zerod(page_number - 1)
+		prev_page = page_zerod(page_number - 1)
 
 		case paginable_type
 		when "Article"
@@ -26,7 +29,7 @@ class Page < ActiveRecord::Base
 
 	def page_next
 		path = []
-		next_page = page_nav_zerod(page_number + 1)
+		next_page = page_zerod(page_number + 1)
 		case paginable_type
 		when "Article"
 			path << paginable.slug
@@ -39,10 +42,10 @@ class Page < ActiveRecord::Base
 		path.join('/')
 	end
 
-	def page_number_zerod
-	  page_number.to_s.rjust(2, '0')
+	def page_number_zerod 
+		page_zerod(page_number)
 	end
-
+	
 	extend FriendlyId
 	friendly_id :page_number_zerod, use: [:scoped, :finders], :scope => [:paginable, :paginable_type]
 end
