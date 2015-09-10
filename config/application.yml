@@ -1,0 +1,13 @@
+defaults: &defaults
+  BLOG_USERNAME: "willis"
+  BLOG_PASSWORD: "plummer"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  BLOG_USERNAME: "wmp224"
+  BLOG_PASSWORD: "sozMQBjL7YDfinntke9dJqYpvrNPpy"
