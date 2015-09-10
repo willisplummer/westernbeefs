@@ -14,6 +14,8 @@ to do:
 - update scrapers to skip leading `<br>`'s on page content and author bios. 
 
 - improve layout to more accurately match the original. (figure out whether or not to keep the two leading linebreaks with page title.)
+- 
+- refactor, refactor, refactor!
 
 ## done
 
