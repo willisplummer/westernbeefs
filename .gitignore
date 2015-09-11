@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore Password File
-/config/application.yml
+.env
