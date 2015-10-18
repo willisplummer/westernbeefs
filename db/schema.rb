@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909214937) do
+ActiveRecord::Schema.define(version: 20151018214004) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20150909214937) do
     t.text     "bio"
     t.integer  "page_count"
     t.integer  "body_width",       default: 600
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "has_index",        default: false
   end
 
   create_table "pages", force: :cascade do |t|
