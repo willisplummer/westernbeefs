@@ -5,7 +5,7 @@
    <div id='author'>
     <%= link_to @article.author, article_bio_path(id: @article.slug) %>
    </div>
-   <div class='content'>
+   <div id='content'>
    <% unless @page.page_title.nil? %>
      <%= @page.page_title %>
      <br>
