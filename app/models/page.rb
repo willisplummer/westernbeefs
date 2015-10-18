@@ -2,7 +2,6 @@ class Page < ActiveRecord::Base
 	belongs_to :paginable, polymorphic: true
 
 	validates_numericality_of :page_number, greater_than: 0
-	validates :page_number, uniqueness: true
 
 	def page_zerod(p)
 		p.to_s.rjust(2, '0')

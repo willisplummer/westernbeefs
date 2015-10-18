@@ -24,10 +24,6 @@ class Article < ActiveRecord::Base
 		author.split.last.downcase
 	end
 
-	def page_count 
-		pages.count
-	end
-
 	def page_count_zerod
 		page_count.to_s.rjust(2, '0')
 	end
