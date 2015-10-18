@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/admin' => 'articles#admin_index', as: :admin_index
   get '/:id/' => 'articles#show', as: :article
   get '/admin/:id/' => 'articles#admin', as: :article_admin
+  get '/admin/:id/editslug' => 'articles#editslug', as: :edit_article_slug
   get '/:id/bio' => 'articles#bio', as: :article_bio
   match '/:id/' => 'articles#update', via: [:patch, :put], as: :article_update
   delete '/:id/' => 'articles#destroy', via: :delete, as: :article_delete

@@ -17,6 +17,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def editslug
+    @article = Article.find(params[:id])
+  end
+
   def bio
     @article = Article.find(params[:id])
   end

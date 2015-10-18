@@ -3,6 +3,8 @@ class Story < ActiveRecord::Base
 	has_many :pages, as: :paginable, dependent: :destroy
 
 	validates :slug, uniqueness: { case_sensitive: false }
+	
+	validates_presence_of :slug, :title
 
 	def page_count 
 		pages.count
