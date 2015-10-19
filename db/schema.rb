@@ -11,27 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018214004) do
+ActiveRecord::Schema.define(version: 20151019030650) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.string   "author"
     t.string   "slug"
     t.string   "author_url"
-    t.string   "first_page_title"
     t.text     "first_page"
     t.text     "bio"
     t.integer  "page_count"
-    t.integer  "body_width",       default: 600
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.boolean  "has_index",        default: false
+    t.integer  "body_width", default: 600
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "has_index",  default: false
   end
 
   create_table "pages", force: :cascade do |t|
     t.integer  "page_number"
     t.string   "slug"
-    t.string   "page_title"
     t.text     "body"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

@@ -30,18 +30,13 @@
   </p>
 
   <p>
-    <%= f.label :first_page_title %><br>
-    <%= f.text_field :first_page_title %>
+    <%= f.label :has_index, "Check if first page is Table of Contents" %><br>
+    <%= f.check_box :has_index %>
   </p>
 
   <p>
     <%= f.label :first_page %><br>
     <%= f.cktext_area :first_page, rows: 10 %>
-  </p>
-
-  <p>
-    <%= f.label :has_index, "Check if first page is Table of Contents" %><br>
-    <%= f.check_box :has_index %>
   </p>
 
   <p>

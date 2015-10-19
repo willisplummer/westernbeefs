@@ -59,6 +59,6 @@ private
 	end
 
 	def page_params
-		params.require(:page).permit(:page_number, :body, :page_title)
+		params.require(:page).permit(:page_number, :body)
 	end
 end
