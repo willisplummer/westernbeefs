@@ -6,10 +6,6 @@
     <%= link_to @article.author, article_bio_path(id: @article.slug) %>
    </div>
    <div id='content'>
-   <% if @page.page_title != nil %>
-     <%= @page.page_title %>
-     <br>
-   <% end %>
    <br>
    <%= @page.body.html_safe %>
    </div>

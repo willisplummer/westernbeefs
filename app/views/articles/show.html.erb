@@ -15,10 +15,6 @@
     <% if @article.has_index? %>
       <div id='content-nav'>
     <% end %>
-     <% if @article.first_page_title != nil %>
-       <%= @article.first_page_title %>
-       <br>
-     <% end %>
      <br>
      <%= @article.first_page.html_safe %>
     <% if @article.has_index? %>
