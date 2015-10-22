@@ -73,7 +73,11 @@ html, body {
     
     #author {
         padding: 5px 0px;
-        width: 600px;
+        <% unless @article.nil? %>
+          width: <%= @article.body_width %>px;
+        <% else %>
+          width: 600px;
+        <% end %>
         text-align: right;
         font-family: Futura, "Trebuchet MS", Arial, sans-serif;
         margin-left: auto ;
