@@ -14,10 +14,7 @@ class Article < ActiveRecord::Base
 	}
 
 	def first
-		if page_count == 0
-			'bio'
-		else '01'
-		end
+		page_count == 0 ? 'bio' : '01'
 	end
 
 	def author_slug
@@ -29,10 +26,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def last_page
-		if page_count == 0
-			nil
-		else page_count_zerod
-		end
+		page_count == 0 ? nil : page_count_zerod
 	end
 
 	extend FriendlyId
