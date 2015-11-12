@@ -31,7 +31,6 @@ class ArticlesController < ApplicationController
 
   def create
   	@article = Article.new(article_params)
-
   	if @article.save
       redirect_to article_admin_path(@article)
   	else
@@ -49,16 +48,15 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-
     redirect_to admin_index_path
   end
 
   private
-  def set_article
-    @article = Article.find(params[:id])
-  end
+    def set_article
+      @article = Article.find(params[:id])
+    end
 
-	def article_params
-		params.require(:article) .permit(:title, :bio, :author_url, :slug, :first_page, :author, :body_width, :has_index, :page_count)
-	end
+  	def article_params
+  		params.require(:article).permit(:title, :bio, :author_url, :slug, :first_page, :author, :body_width, :has_index, :page_count)
+  	end
 end
