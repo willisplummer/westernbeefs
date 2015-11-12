@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: ENV["my_admin_username"], password: ENV["my_admin_password"], except: [:index, :show, :bio]
+  before_action :set_article, only: [:show, :admin, :editslug, :bio, :edit, :update, :destroy]
 
   def index
   	@articles = Article.all.order(created_at: :desc)
@@ -10,19 +11,15 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def admin
-    @article = Article.find(params[:id])
   end
 
   def editslug
-    @article = Article.find(params[:id])
   end
 
   def bio
-    @article = Article.find(params[:id])
   end
   
   def new
@@ -30,7 +27,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def create
@@ -44,8 +40,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
-
     if @article.update(article_params)
       redirect_to article_admin_path(@article)
     else
@@ -54,13 +48,17 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
 
     redirect_to admin_index_path
   end
-private
+
+  private
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
 	def article_params
-		params.require(:article) .permit(:title, :bio, :author_url, :slug, :first_page, :author, :body_width, :has_index)
+		params.require(:article) .permit(:title, :bio, :author_url, :slug, :first_page, :author, :body_width, :has_index, :page_count)
 	end
 end

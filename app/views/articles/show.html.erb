@@ -7,20 +7,20 @@
     <% end %>   
   </em></h1></div>
   <% unless @article.has_index? %>
-   <div id='author'>
-    <%= link_to @article.author, article_bio_path(id: @article.slug) %>
-   </div>
+    <div id='author'>
+      <%= link_to @article.author, article_bio_path(id: @article.slug) %>
+    </div>
   <% end %>   
-   <div id='content'>
-    <% if @article.has_index? %>
-      <div id='content-nav'>
-    <% end %>
-     <br>
-     <%= @article.first_page.html_safe %>
-    <% if @article.has_index? %>
-      </div>
-    <% end %>
-   </div>
+    <div id='content'>
+      <% if @article.has_index? %>
+        <div id='content-nav'>
+      <% end %>
+      <br>
+      <%= @article.first_page.html_safe %>
+      <% if @article.has_index? %>
+        </div>
+      <% end %>
+    </div>
 </div>
 
 <% unless @article.has_index? %>

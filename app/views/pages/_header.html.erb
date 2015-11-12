@@ -2,9 +2,9 @@
 <html lang='en'>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
     <link rel="shortcut icon" href="/favicon.ico" />
-    <% unless @article == nil %>
+    <% unless @article.nil? %>
       <title><%= @article.author %> | <%= strip_tags @article.title %></title>
-    <% end %>
+     <% end %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<% unless @article == nil %>
     <meta name="author" content="<%= @article.author %>">
