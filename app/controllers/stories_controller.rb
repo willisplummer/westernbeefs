@@ -14,15 +14,19 @@ class StoriesController < ApplicationController
 	end
 
 	def create
-		@story = @article.stories.create(story_params)
-		redirect_to article_admin_path(@article)
+		@story = @article.stories.new(story_params)
+		if @story.save
+			redirect_to article_story_admin_path(article_id: @article, id: @story)
+		else
+			redirect_to article_admin_path(@article)
+		end
 	end
 
 	def update
   	if @story.update(story_params)
-    		redirect_to article_admin_path(@article)
+    	redirect_to article_story_admin_path(article_id: @article, id: @story)
  		else
-    		render 'edit'
+    	render 'edit'
   	end
 	end
 
