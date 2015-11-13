@@ -1,7 +1,21 @@
 <h1>Edit <% @story %></h1>
 
+<% if @story.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@story.errors.count, "error") %> prohibited
+      this story from being saved:
+    </h2>
+    <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@story, :url => edit_article_story_path(@article, @story)) do |form| %>
 	<%= render partial: 'form', locals: {f: form} %>
 <% end %>
 
-<%= link_to 'Back', article_admin_path %>
+<%= link_to 'Back', article_admin_path(@article) %>

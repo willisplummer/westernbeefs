@@ -36,7 +36,7 @@
 <%= render @article.pages.sort_by { |page| page.page_number } %>
 
 <h2>Add a page:</h2>
-<%= form_for([@article, @article.pages.build]) do |form| %>
+<%= form_for([@article, @article.pages.new]) do |form| %>
 	<%= render partial: 'pages/form', locals: {f: form} %>
 <% end %>
 
@@ -46,6 +46,6 @@
 <%= render @article.stories %>
 
 <h2>Add a story:</h2>
-<%= form_for([@article, @article.stories.build]) do |form| %>
+<%= form_for([@article, @article.stories.new]) do |form| %>
 	<%= render partial: 'stories/form', locals: {f: form} %>
 <% end %>

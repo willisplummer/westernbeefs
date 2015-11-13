@@ -15,8 +15,12 @@ class PagesController < ApplicationController
 	end
 
 	def create
-		@page = @paginable.pages.create(page_params)
-		redirect_to_correct_admin_path(@page, @paginable)
+		@page = @paginable.pages.new(page_params)
+		if @page.save
+			redirect_to_correct_admin_path(@page, @paginable)
+		else
+			render 'edit'
+		end
 	end
 
 	def update
