@@ -23,4 +23,3 @@ describe "Clicking the forward arrow when there is at least 1 page" do
 		expect(page).to have_text("test author1")
 	end
 end
-
