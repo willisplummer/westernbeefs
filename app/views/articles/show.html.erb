@@ -1,11 +1,9 @@
 <%= render 'pages/header' %>
 
 <div class="page-wrap">
-   <div id="header"><h1><em><%= @article.title.html_safe %>
-    <% if @article.has_index? %>
-       | <%= @article.author %>
-    <% end %>   
-  </em></h1></div>
+  <div id="header">
+    <h1><em><%= @article.title.html_safe %><%= " | #{@article.author}" if @article.has_index? %></em></h1>
+  </div>
   <% unless @article.has_index? %>
     <div id='author'>
       <%= link_to @article.author, article_bio_path(id: @article.slug) %>
@@ -15,14 +13,12 @@
       <% if @article.has_index? %>
         <div id='content-nav'>
       <% end %>
-      <br>
-      <%= @article.first_page.html_safe %>
+        <br>
+        <%= @article.first_page.html_safe %>
       <% if @article.has_index? %>
         </div>
       <% end %>
     </div>
 </div>
 
-<% unless @article.has_index? %>
-  <%= render 'articles/footer' %>
-<% end %>
+<%= render 'articles/footer' unless @article.has_index? %>
