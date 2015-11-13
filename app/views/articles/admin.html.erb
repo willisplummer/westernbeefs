@@ -46,4 +46,6 @@
 <%= render @article.stories %>
 
 <h2>Add a story:</h2>
-<%= render 'stories/form' %>
+<%= form_for([@article, @article.stories.build]) do |form| %>
+	<%= render partial: 'stories/form', locals: {f: form} %>
+<% end %>

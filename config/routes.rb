@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :articles, except: [:show, :update, :destroy] do
-    resources :stories, except: [:show, :update, :destroy]
+    resources :stories, except: [:edit, :show, :update, :destroy]
     resources :pages, except: [:show, :update, :destroy]
   end
 
@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   match '/:article_id/:id' => 'pages#update', via: [:patch, :put], as: :article_page_update
   delete '/:article_id/:id' => 'pages#destroy', via: :delete, as: :article_page_delete
 
+  get 'admin/:article_id/:id/edit' => 'stories#edit', as: :edit_article_story
   get 'admin/:article_id/:id' => 'stories#show', as: :article_story_admin
-  match 'admin/:article_id/:id' => 'stories#update', via: [:patch, :put], as: :article_story_update
+  match 'admin/:article_id/:id/edit' => 'stories#update', via: [:patch, :put], as: :article_story_update
   delete 'admin/:article_id/:id' => 'stories#destroy', via: :delete, as: :article_story_delete
 
   get '/:article_id/:story_id/:id/edit' => 'pages#edit', as: :edit_story_page

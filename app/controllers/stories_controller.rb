@@ -1,13 +1,13 @@
 class StoriesController < ApplicationController
 	http_basic_authenticate_with name: ENV["my_admin_username"], password: ENV["my_admin_password"]
-  before_action :set_article, only: [:show, :edit, :create, :update, :destroy]
+  before_action :set_article, only: [:new, :show, :edit, :create, :update, :destroy]
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
 	def show
  	end
 
  	def new
-		@article = Article.new
+ 		@story = @article.stories.new
 	end
 
 	def edit

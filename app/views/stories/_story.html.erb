@@ -1,17 +1,19 @@
-<p>
-	<strong>Title:</strong>
-	<%= story.title.html_safe %>
-</p>
+<% unless story.title.nil? %>
+	<p>
+		<strong>Title:</strong>
+		<%= story.title.html_safe %>
+	</p>
 
-<p>
-	<strong>Page Count:</strong>
-	<%= story.page_count %>
-</p>
-<p>
-  <%= link_to 'Edit', edit_article_story_path(story.article, story) %> |
-  <%= link_to 'Admin View', article_story_admin_path(story.article, story) %> |
-  <%= link_to 'Delete Story', article_story_delete_path(story.article, story),
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p><br><br>
-<br><br>
+	<p>
+		<strong>Page Count:</strong>
+		<%= story.page_count %>
+	</p>
+	<p>
+	  <%= link_to 'Edit', edit_article_story_path(story.article, story) %> |
+	  <%= link_to 'Admin View', article_story_admin_path(story.article, story) %> |
+	  <%= link_to 'Delete Story', article_story_delete_path(story.article, story),
+	               method: :delete,
+	               data: { confirm: 'Are you sure?' } %>
+	</p><br><br>
+	<br><br>
+<% end %>
