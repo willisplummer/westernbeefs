@@ -1,5 +1,7 @@
 <h1>Edit <% @story %></h1>
 
-<%= render 'stories/form' %>
+<%= form_for(@story, :url => edit_article_story_path(@article, @story)) do |form| %>
+	<%= render partial: 'form', locals: {f: form} %>
+<% end %>
 
 <%= link_to 'Back', article_admin_path %>

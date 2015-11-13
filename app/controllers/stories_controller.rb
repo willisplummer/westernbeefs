@@ -1,47 +1,49 @@
 class StoriesController < ApplicationController
 	http_basic_authenticate_with name: ENV["my_admin_username"], password: ENV["my_admin_password"]
-
+  before_action :set_article, only: [:new, :show, :edit, :create, :update, :destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy]
 
 	def show
-		@article = Article.find(params[:article_id])
-  		@story = @article.stories.find(params[:id])
  	end
 
  	def new
-  		@article = Article.new
-  	end
+ 		@story = @article.stories.new
+	end
 
 	def edit
-    	@article = Article.find(params[:article_id])
-  		@story = @article.stories.find(params[:id])
-  	end
+	end
 
 	def create
-		@article = Article.find(params[:article_id])
-		@story = @article.stories.create(story_params)
-		redirect_to article_admin_path(@article)
+		@story = @article.stories.new(story_params)
+		if @story.save
+			redirect_to article_story_admin_path(article_id: @article, id: @story)
+		else
+			redirect_to article_admin_path(@article)
+		end
 	end
 
 	def update
-    	@article = Article.find(params[:id])
-    	@story = @article.stories.find(params[:id])
-
-
-    	if @story.update(story_params)
-      		redirect_to article_admin_path(@article)
-   		else
-      		render 'edit'
-    	end
+  	if @story.update(story_params)
+    	redirect_to article_story_admin_path(article_id: @article, id: @story)
+ 		else
+    	render 'edit'
   	end
+	end
 
 	def destroy
-		@article = Article.find(params[:article_id])
-		@story = @article.stories.find(params[:id])
 		@story.destroy
 		redirect_to article_admin_path(@article)
 	end
 
 	private
+	  def set_article
+	    @article = Article.find(params[:article_id])
+	  end
+
+	  def set_story
+	    @story = @article.stories.find(params[:id])
+	  end
+
 		def story_params
 			params.require(:story).permit(:title, :slug)
 		end

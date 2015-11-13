@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
 	has_many :pages, as: :paginable, dependent: :destroy
 	has_many :stories, dependent: :destroy
 	
-	validates_presence_of :title, :author, :slug, :bio, :page_count, :first_page
+	validates_presence_of :title, :author, :slug, :bio, :first_page, :page_count
 	
 	validates :slug, uniqueness: { case_sensitive: false }
 
@@ -14,10 +14,7 @@ class Article < ActiveRecord::Base
 	}
 
 	def first
-		if page_count == 0
-			'bio'
-		else '01'
-		end
+		page_count == 0 ? 'bio' : '01'
 	end
 
 	def author_slug
@@ -29,10 +26,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def last_page
-		if page_count == 0
-			nil
-		else page_count_zerod
-		end
+		page_count == 0 ? nil : page_count_zerod
 	end
 
 	extend FriendlyId
