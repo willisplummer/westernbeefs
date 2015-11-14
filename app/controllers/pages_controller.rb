@@ -36,28 +36,28 @@ class PagesController < ApplicationController
 		redirect_to_correct_admin_path(@page, @paginable)
 	end
 
-private
-	def load_paginable
-		if params[:story_id]
-		  @paginable = Story.find(params[:story_id])
-		elsif params[:article_id]
-	    @paginable = Article.find(params[:article_id])
-	  end
-	end
+	private
+		def load_paginable
+			if params[:story_id]
+			  @paginable = Story.find(params[:story_id])
+			elsif params[:article_id]
+		    @paginable = Article.find(params[:article_id])
+		  end
+		end
 
-	def set_page
-		@page = @paginable.pages.find(params[:id])
-	end
+		def set_page
+			@page = @paginable.pages.find(params[:id])
+		end
 
-	def redirect_to_correct_admin_path(page, paginable)
-		if page.paginable_type == "Story"
-			redirect_to article_story_admin_path(article_id: paginable.article, id: paginable)
-		else
-			redirect_to article_admin_path(paginable)
-    end
-	end
+		def redirect_to_correct_admin_path(page, paginable)
+			if page.paginable_type == "Story"
+				redirect_to article_story_admin_path(article_id: paginable.article, id: paginable)
+			else
+				redirect_to article_admin_path(paginable)
+	    end
+		end
 
-	def page_params
-		params.require(:page).permit(:page_number, :body)
-	end
+		def page_params
+			params.require(:page).permit(:page_number, :body)
+		end
 end

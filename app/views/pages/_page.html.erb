@@ -1,28 +1,29 @@
-<% unless page.body.nil? %>
+<p>
+	<strong>Page Number:</strong>
+	<%= page.page_number %>
+</p>
+<p>
+	<strong>Page Slug:</strong>
+	<%= page.slug %>
+</p>
+<p>
+	<strong>Body:</strong>
+	<%= page.body.html_safe %>
+</p>
+<% if page.paginable_type == "Article" %>
 	<p>
-		<strong>Page Number:</strong>
-		<%= page.page_number %>
+	  <%= link_to 'Edit', edit_article_page_path(@article, page) %> |
+	  <%= link_to 'Standard View', [@article, page] %> |
+	  <%= link_to 'Destroy Page', [@article, page],
+	               method: :delete,
+	               data: { confirm: 'Are you sure?' } %>
 	</p>
-
+<% elsif page.paginable_type == "Story" %>
 	<p>
-		<strong>Body:</strong>
-		<%= page.body.html_safe %>
+	  <%= link_to 'Edit', edit_story_page_path(@article, @story, page) %> |
+	  <%= link_to 'Standard View', story_page_path(@article, @story, page) %> |
+	  <%= link_to 'Destroy Page', story_page_delete_path(@article, @story, page),
+	               method: :delete,
+	               data: { confirm: 'Are you sure?' } %>
 	</p>
-	<% if page.paginable_type == "Article" %>
-		<p>
-		  <%= link_to 'Edit', edit_article_page_path(@article, page) %> |
-		  <%= link_to 'Standard View', [@article, page] %> |
-		  <%= link_to 'Destroy Page', [@article, page],
-		               method: :delete,
-		               data: { confirm: 'Are you sure?' } %>
-		</p>
-	<% elsif page.paginable_type == "Story" %>
-		<p>
-		  <%= link_to 'Edit', edit_story_page_path(@article, @story, page) %> |
-		  <%= link_to 'Standard View', story_page_path(@article, @story, page) %> |
-		  <%= link_to 'Destroy Page', story_page_delete_path(@article, @story, page),
-		               method: :delete,
-		               data: { confirm: 'Are you sure?' } %>
-		</p>
-	<% end %>
 <% end %>
