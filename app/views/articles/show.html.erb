@@ -1,4 +1,6 @@
-<%= render 'pages/header' %>
+<% content_for :title do %><%= @article.author %> | <%= strip_tags @article.title %><% end %>
+<% content_for :author do %><%= @article.author %><% end %>
+<% content_for :description do %><%= strip_tags @article.title %> by <%= @article.author %><% end %>
 
 <div class="page-wrap">
   <div id="header">
