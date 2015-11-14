@@ -6,8 +6,7 @@ class Story < ActiveRecord::Base
 	
 	validates_presence_of :slug, :title
 
-#this should be a view helper probably
-	def page_count 
+	def page_count
 		pages.count
 	end
 
