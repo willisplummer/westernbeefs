@@ -18,7 +18,7 @@ class StoriesController < ApplicationController
 		if @story.save
 			redirect_to article_story_admin_path(article_id: @article, id: @story)
 		else
-			redirect_to article_admin_path(@article)
+			render 'edit'
 		end
 	end
 
