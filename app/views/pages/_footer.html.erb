@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div id="nav">
-    <a href=/<%= page_prev(@page) %>><</a><%= @page.page_number if @article.has_index? %><a href=/<%= page_next(@page) %>>></a>
+    <%= page_prev(@article, @page, @bio) %><%= page_next(@article, @page, @bio) %>
   </div>
 </footer>
 </html>

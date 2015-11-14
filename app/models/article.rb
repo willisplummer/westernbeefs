@@ -17,6 +17,8 @@ class Article < ActiveRecord::Base
 		author.split.last.downcase
 	end
 
+	#cant remember why this didn't work before?
+	
 	# def page_count
 	# 	pages.count
 	# end

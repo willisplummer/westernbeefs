@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def bio
+    @bio = true
   end
   
   def new
