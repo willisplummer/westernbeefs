@@ -49,4 +49,10 @@ module PagesHelper
 			end
 		end
 	end
+
+	def show_page_number(article, page, bio)
+		if article.has_index 
+			bio ? "Bio" : page.page_number
+		end
+	end
 end
