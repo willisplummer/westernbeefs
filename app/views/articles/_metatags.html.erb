@@ -1,3 +1,4 @@
 <% content_for :title do %><%= strip_tags @article.title %> by <%= @article.author %><% end %>
 <% content_for :author do %><%= @article.author %><% end %>
 <% content_for :description do %><%= strip_tags @article.title %> by <%= @article.author %><% end %>
+<% content_for :url do %><%= get_url(@article, @page, @bio) %><% end %>
