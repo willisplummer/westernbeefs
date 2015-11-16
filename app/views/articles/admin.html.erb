@@ -1,31 +1,31 @@
 <p>
-	<strong>Collection Title:</strong>
-	<%= @article.title %>
+  <strong>Collection Title:</strong>
+  <%= @article.title %>
 </p>
 
 <p>
-	<strong>Author:</strong>
-	<%= @article.author %>
+  <strong>Author:</strong>
+  <%= @article.author %>
 </p>
 
 <p>
-	<strong>Slug:</strong>
-	<%= @article.slug %>
+  <strong>Slug:</strong>
+  <%= @article.slug %>
 </p>
 
 <p>
-	<strong>Page Count:</strong>
-	<%= @article.page_count %>
+  <strong>Page Count:</strong>
+  <%= @article.page_count %>
 </p>
 
 <p>
-	<strong>First Page:</strong>
-	<%= @article.first_page %>
+  <strong>First Page:</strong>
+  <%= @article.first_page %>
 </p>
 
 <p>
-	<strong>Author Bio:</strong>
-	<%= @article.bio %>
+  <strong>Author Bio:</strong>
+  <%= @article.bio %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> | <%= link_to 'Admin Index', admin_index_path %> | <%= link_to 'Standard View', article_path(@article) %> | <%= link_to 'Custom Slug', edit_article_slug_path(@article) %>
@@ -37,7 +37,7 @@
 
 <h2>Add a page:</h2>
 <%= form_for([@article, @article.pages.new]) do |form| %>
-	<%= render partial: 'pages/form', locals: {f: form} %>
+  <%= render partial: 'pages/form', locals: {f: form} %>
 <% end %>
 
 <br><br>
@@ -47,5 +47,5 @@
 
 <h2>Add a story:</h2>
 <%= form_for([@article, @article.stories.new]) do |form| %>
-	<%= render partial: 'stories/form', locals: {f: form} %>
+  <%= render partial: 'stories/form', locals: {f: form} %>
 <% end %>

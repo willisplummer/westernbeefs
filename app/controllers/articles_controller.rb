@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :admin, :editslug, :bio, :edit, :update, :destroy]
 
   def index
-  	@articles = Article.all.order(created_at: :desc)
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def admin_index
@@ -24,19 +24,19 @@ class ArticlesController < ApplicationController
   end
   
   def new
-  	@article = Article.new
+    @article = Article.new
   end
 
   def edit
   end
 
   def create
-  	@article = Article.new(article_params)
-  	if @article.save
+    @article = Article.new(article_params)
+    if @article.save
       redirect_to article_admin_path(@article)
-  	else
-  		render 'new'
-  	end
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
 
-  	def article_params
-  		params.require(:article).permit(:title, :bio, :author_url, :slug, :first_page, :author, :body_width, :has_index, :page_count)
-  	end
+    def article_params
+      params.require(:article).permit(:title, :bio, :author_url, :slug, :first_page, :author, :body_width, :has_index, :page_count)
+    end
 end

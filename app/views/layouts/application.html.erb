@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang = "en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
 <head>
-	<title><%= content_for?(:title) ? yield(:title) : "Western Beefs of North America" %></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="author" content="<%= content_for?(:author) ? yield(:author) : "Willis Plummer" %>">
-	<meta name="keywords" content="Western Beefs of North America, Poetry, Fiction, Writing, <%= content_for?(:author) ? yield(:author) : "Willis Plummer" %>" />
-	<meta name="Description" content="<%= content_for?(:description) ? yield(:description) : "contemporary poetry and fiction by emerging writers." %>">
-	<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "Western Beefs of North America" %>" />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="http://westernbeefs.com/assets/wbonacrop.jpg" />
-	<meta property="og:url" content="<%= content_for?(:url) ? yield(:url) : "http://westernbeefs.com" %>" />
-	<meta property="og:site_name" content="Western Beefs of North America" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-	<% unless @article.nil? %>
-		<style>
-		  #author {
-	        width: <%= @article.body_width %>px;
-		  }
+  <title><%= content_for?(:title) ? yield(:title) : "Western Beefs of North America" %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="author" content="<%= content_for?(:author) ? yield(:author) : "Willis Plummer" %>">
+  <meta name="keywords" content="Western Beefs of North America, Poetry, Fiction, Writing, <%= content_for?(:author) ? yield(:author) : "Willis Plummer" %>" />
+  <meta name="Description" content="<%= content_for?(:description) ? yield(:description) : "contemporary poetry and fiction by emerging writers." %>">
+  <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "Western Beefs of North America" %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://westernbeefs.com/assets/wbonacrop.jpg" />
+  <meta property="og:url" content="<%= content_for?(:url) ? yield(:url) : "http://westernbeefs.com" %>" />
+  <meta property="og:site_name" content="Western Beefs of North America" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <% unless @article.nil? %>
+    <style>
+      #author {
+          width: <%= @article.body_width %>px;
+      }
 
-		  #content-nav {
-	        width: <%= @article.body_width %>px;
-		  }
+      #content-nav {
+          width: <%= @article.body_width %>px;
+      }
 
-		  #content {
-	        width: <%= @article.body_width %>px;
-		  }
-	  </style>
-	<% end %>
+      #content {
+          width: <%= @article.body_width %>px;
+      }
+    </style>
+  <% end %>
   <script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-43087035-3', 'westernbeefs.com');
-	  ga('send', 'pageview');
-	</script>
+    ga('create', 'UA-43087035-3', 'westernbeefs.com');
+    ga('send', 'pageview');
+  </script>
 </head>
 <body>
 

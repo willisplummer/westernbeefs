@@ -76,7 +76,7 @@ html, body {
 
 #author {
     padding: 5px 0px;
-			width: 600px;
+            width: 600px;
     text-align: right;
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     margin-left: auto ;
@@ -85,7 +85,7 @@ html, body {
 
 #content {
     line-height: 165%;
-			width: 600px;
+            width: 600px;
     margin-left: auto ;
     margin-right: auto ;
     text-align: justify;
@@ -95,7 +95,7 @@ html, body {
 
 #content-nav {
     line-height: 165%;
-			width: 600px;
+            width: 600px;
     margin-left: auto ;
     margin-right: auto ;
     padding:15px 0px 15px 0px;

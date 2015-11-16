@@ -1,21 +1,21 @@
 <p>
-	<strong>Collection Title:</strong>
-	<%= @article.title %>
+  <strong>Collection Title:</strong>
+  <%= @article.title %>
 </p>
 
 <p>
-	<strong>Author:</strong>
-	<%= @article.author %>
+  <strong>Author:</strong>
+  <%= @article.author %>
 </p>
 
 <p>
-	<strong>Story Title:</strong> 
-	<%= @story.title %>
+  <strong>Story Title:</strong> 
+  <%= @story.title %>
 </p>
 
 <p>
-	<strong>Page Count:</strong> 
-	<%= @story.page_count %>
+  <strong>Page Count:</strong> 
+  <%= @story.page_count %>
 </p>
 
 <h2>Story Pages:</h2>
@@ -23,5 +23,5 @@
 
 <h2>Add a story page:</h2>
 <%= form_for([@story, @story.pages.build]) do |form| %>
-	<%= render partial: 'pages/form', locals: {f: form} %>
+  <%= render partial: 'pages/form', locals: {f: form} %>
 <% end %>
