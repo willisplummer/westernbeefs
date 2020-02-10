@@ -1,8 +1,3 @@
-to do:
-====================
+Note: This app is no longer in use -- i just ended up using wget to copy all the static pages and then put those up in a different github repo and hosted via github pages. https://github.com/willisplummer/static-wb
 
-- page count logic
-
-- customize ckeditor to only provide basic functionality (bold, italic, link, indent, and linebreaks). it seems like this can be done using their toolbar configurator utility [found here](http://docs.ckeditor.com/#!/guide/dev_toolbar) but they suggest that you not just edit the config file because all of the plugins will still be pre-loaded. more info about the rails integration [here](https://github.com/galetahub/ckeditor).
-
-- refactor, refactor, refactor!
+This note is for my own sanity so next time i wonder how this is hosted i'll remember!
